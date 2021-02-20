@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/mysql_lyp?serverTimezone=UTC&useUnicode=true@characterEncoding=utf-8
