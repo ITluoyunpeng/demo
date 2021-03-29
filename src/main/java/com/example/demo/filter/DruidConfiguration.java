@@ -54,6 +54,7 @@ public class DruidConfiguration {
         // 添加过滤规则
         Map<String, String> initParams = new HashMap<>(1);
         // 设置忽略请求
+
         initParams.put("exclusions", "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*");
         filterRegistrationBean.setInitParameters(initParams);
         filterRegistrationBean.addInitParameter("profileEnable", "true");
