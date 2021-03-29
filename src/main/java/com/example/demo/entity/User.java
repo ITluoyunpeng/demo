@@ -1,6 +1,16 @@
 package com.example.demo.entity;
 
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "user_info")
 public class User {
+    @Id
     private String user_id;
     private String user_name;
     private String user_sex;

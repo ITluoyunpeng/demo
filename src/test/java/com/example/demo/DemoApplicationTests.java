@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.entity.User;
+import com.example.demo.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +16,8 @@ import java.util.List;
 class DemoApplicationTests {
     @Resource
     private JdbcTemplate jdbcTemplate;
+    @Resource
+    private IUserService userService;
 
     @Test
     void contextLoads() {
@@ -34,6 +37,10 @@ class DemoApplicationTests {
              query) {
             System.out.println(user.getUser_name());
         }
+    }
+    @Test
+    void jpaTest(){
+        userService.findAll();
     }
 
 }
