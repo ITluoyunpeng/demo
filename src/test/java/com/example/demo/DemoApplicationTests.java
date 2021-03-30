@@ -40,7 +40,12 @@ class DemoApplicationTests {
     }
     @Test
     void jpaTest(){
-        userService.findAll();
+        List<User> all = userService.findAll();
+        for (User user:all
+             ) {
+            System.out.println(user);
+        }
+
     }
 
 }

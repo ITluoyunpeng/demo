@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "user_info")
+@Table(name = "USER_INFO")
 public class User {
     @Id
     private String user_id;
@@ -40,5 +40,14 @@ public class User {
 
     public void setUser_sex(String user_sex) {
         this.user_sex = user_sex;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id='" + user_id + '\'' +
+                ", user_name='" + user_name + '\'' +
+                ", user_sex='" + user_sex + '\'' +
+                '}';
     }
 }
