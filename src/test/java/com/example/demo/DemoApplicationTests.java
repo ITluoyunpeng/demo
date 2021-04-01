@@ -4,6 +4,9 @@ import com.example.demo.entity.User;
 import com.example.demo.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -43,6 +46,12 @@ class DemoApplicationTests {
         List<User> all = userService.findAll();
         for (User user:all
              ) {
+            System.out.println(user);
+        }
+
+
+        Page<User> all1 = userService.findAll(PageRequest.of(1,5));
+        for (User user : all) {
             System.out.println(user);
         }
 
