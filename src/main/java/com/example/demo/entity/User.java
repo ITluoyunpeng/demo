@@ -5,11 +5,12 @@ package com.example.demo.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "USER_INFO")
-public class User {
+public class User implements Serializable {
     @Id
     private String user_id;
     private String user_name;

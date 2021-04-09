@@ -24,6 +24,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<User> findAll() {
+
         return userRepository.findAll();
     }
 

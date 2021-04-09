@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -21,7 +22,8 @@ class DemoApplicationTests {
     private JdbcTemplate jdbcTemplate;
     @Resource
     private IUserService userService;
-
+    @Resource
+    private RedisTemplate redisTemplate;
     @Test
     void contextLoads() {
         String sql="select * from user_info";
@@ -48,13 +50,16 @@ class DemoApplicationTests {
              ) {
             System.out.println(user);
         }
-
-
         Page<User> all1 = userService.findAll(PageRequest.of(1,5));
         for (User user : all) {
             System.out.println(user);
         }
-
+    }
+    @Test
+    public  void testRedis(){
+        redisTemplate.opsForValue().set("name","lyp");
+        Object name = redisTemplate.opsForValue().get("name");
+        System.out.println(name);
     }
 
 }
